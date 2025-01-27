@@ -43,6 +43,11 @@ export default function Page() {
 
                 <Text size={"5"} weight="bold">BLACKJACK. GAME</Text>
 
+                <p>MUST WAIT NETWORK PLEASE!</p>
+                <p>IF YOU DON'T SEE ANY ACTION, RELOAD THE PAGE.</p>
+                <p>Put an amount of TEA - Start Game - Hit or Stand!</p>
+                <p>21 or nearest to 21 against Dealer, wins!</p>
+                <p>GOOD LUCK!</p>
                 <p>Dealer needs your cup of TEA!</p>
 
 
