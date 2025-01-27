@@ -7,7 +7,7 @@ import { Box, Button, Container, Flex, Grid, Text, TextField } from "@radix-ui/t
 import AccountInfo from './account-info';
 import ToastComponent from './toast';
 
-const CONTRACT_ADDRESS = '0x233eE21B088ae2d413c523EcFfD75429CaDEC3Ab';
+const CONTRACT_ADDRESS = '0x2ec4EBdF37CAeefb2ee4bA8DABa1B077b8928569';
 
 interface ContractInteractionProps {
     account: string | null;
@@ -168,7 +168,7 @@ const ContractInteraction: React.FC<ContractInteractionProps> = ({ account }) =>
                             <Container size={"3"} gridArea={"2"}>
 
                                         <TextField.Root
-                                            placeholder="Bet amount (in ETH)"
+                                            placeholder="Bet amount (in TEA)"
                                             value={betAmount}
                                             onChange={(e) => setBetAmount(e.target.value)}
                                         >
@@ -184,6 +184,8 @@ const ContractInteraction: React.FC<ContractInteractionProps> = ({ account }) =>
                                         <Button variant={"surface"} color={"orange"} onClick={handleStand} disabled={loadingStand}>
                                             {loadingStand ? 'Standing...' : 'Stand'}
                                         </Button>
+
+
 
                             </Container>
                         </Box>

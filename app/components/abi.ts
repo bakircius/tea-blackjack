@@ -93,8 +93,14 @@ export const CONTRACT_ABI = [
         "type": "event"
     },
     {
-        "inputs": [],
-        "name": "dealer",
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "dealers",
         "outputs": [
             {
                 "internalType": "uint8",
@@ -303,8 +309,14 @@ export const CONTRACT_ABI = [
         "type": "function"
     },
     {
-        "inputs": [],
-        "name": "user",
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "users",
         "outputs": [
             {
                 "internalType": "uint8",
