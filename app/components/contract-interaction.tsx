@@ -154,21 +154,18 @@ const ContractInteraction: React.FC<ContractInteractionProps> = ({ account }) =>
     };
 
     return (
-        <Flex direction={"column"} gap={"3"}>
+        <Flex direction={"column"}>
             {account ? (
                 <>
-                    <Box className={"bg-gray-200 rounded-xl"}>
+                    <Box>
                         <AccountInfo provider={provider} contract={contract} address={account} />
                     </Box>
 
                     <Grid gap={"3"}>
+
                         <Box p={"4"} className={"border rounded-xl"}>
 
                             <Container size={"3"} gridArea={"2"}>
-
-                                <Flex direction={"row"} justify={"between"}>
-
-                                    <Box>
 
                                         <TextField.Root
                                             placeholder="Bet amount (in ETH)"
@@ -188,17 +185,6 @@ const ContractInteraction: React.FC<ContractInteractionProps> = ({ account }) =>
                                             {loadingStand ? 'Standing...' : 'Stand'}
                                         </Button>
 
-
-
-                                    </Box>
-
-                                    <Box p={"4"} className={"border rounded-xl"}>
-                                        <Text>User Score: {userScore !== null ? userScore : 'N/A'} </Text>
-                                        <Text>Dealer Score: {dealerScore !== null ? dealerScore : 'N/A'}</Text>
-                                    </Box>
-
-                                </Flex>
-
                             </Container>
                         </Box>
 
@@ -212,8 +198,21 @@ const ContractInteraction: React.FC<ContractInteractionProps> = ({ account }) =>
                             </Box>
                         )}
 
-                        <Box p={"4"} className={"border rounded-xl"}>
-                            <Text>User Hand:</Text>
+                        <Box p={"4"} className={"border rounded-xl text-center"}>
+                            <Text >Dealer Hand: {dealerScore !== null ? dealerScore : 'N/A'} points</Text>
+                            <Flex>
+                                {dealerHand.map((card, index) => (
+                                    <>
+                                        <div key={index} className={"rounded-xl bg-black w-32 p-2 mr-3"}>
+                                            <img width={"120"} src={`/cards/${card}`} alt={`Card ${card}`} />
+                                        </div>
+                                    </>
+                                ))}
+                            </Flex>
+                        </Box>
+
+                        <Box p={"4"} className={"border rounded-xl text-center"}>
+                            <Text>Your Hand : {userScore !== null ? userScore : 'N/A'} points</Text>
                             <Flex>
                                 {userHand.map((card, index) => (
                                     <>
@@ -225,18 +224,7 @@ const ContractInteraction: React.FC<ContractInteractionProps> = ({ account }) =>
                             </Flex>
                         </Box>
 
-                        <Box p={"4"} className={"border rounded-xl"}>
-                            <Text>Dealer Hand:</Text>
-                            <Flex>
-                                {dealerHand.map((card, index) => (
-                                    <>
-                                        <div key={index} className={"rounded-xl bg-black w-32 p-2 mr-3"}>
-                                            <img width={"120"} src={`/cards/${card}`} alt={`Card ${card}`} />
-                                        </div>
-                                    </>
-                                ))}
-                            </Flex>
-                        </Box>
+
                     </Grid>
                 </>
             ) : (
