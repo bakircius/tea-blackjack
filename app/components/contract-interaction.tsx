@@ -165,15 +165,16 @@ const ContractInteraction: React.FC<ContractInteractionProps> = ({ account }) =>
                 setToastMessage('Card dealt successfully');
                 setToastOpen(true);
                 const userScore = await contract.getUserScore();
+                setUserScore(userScore);
+                const userHand = await contract.getUserHand();
+                setUserHand(userHand.map(getCardName));
                 if (userScore > 21) {
                     setToastMessage('Busted! You lost!');
                     setToastOpen(true);
                     setGameStatus('Game Ended');
+                } else {
+                    setGameStatus('Game in Progress');
                 }
-                setUserScore(userScore);
-                const userHand = await contract.getUserHand();
-                setUserHand(userHand.map(getCardName));
-                setGameStatus('Game in Progress');
                 fetchBalances();
             } catch (error) {
                 setToastMessage('Error hitting: Try again.');
